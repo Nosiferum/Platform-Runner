@@ -7,7 +7,10 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
     public class PlayerController : MonoBehaviour {
 
         [SerializeField]
-        private float speed = 5f;
+        private float runnigSpeed = 5f;
+
+        [SerializeField]
+        private float movingSpeed = 5f;
 
         private Rigidbody rigidbody;
 
@@ -18,8 +21,20 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
 
         private void FixedUpdate() {
 
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            
 
+        }
+
+        private void Update() {
+
+            transform.Translate(Vector3.forward * runnigSpeed * Time.deltaTime);
+
+            if (Input.GetKey(KeyCode.Mouse0)) 
+                transform.Translate(Vector3.right * movingSpeed * Time.deltaTime);
+            
+            else if (Input.GetKey(KeyCode.Mouse1)) 
+                transform.Translate(Vector3.left * movingSpeed * Time.deltaTime);
+            
         }
     }
 }
