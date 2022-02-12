@@ -12,27 +12,44 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
         [SerializeField]
         private float movingSpeed = 5f;
 
+        private Rigidbody rb;
+
         public Animator animator { get; set; }
         public bool isMoving { get; set; } = true;
 
         private void Awake() {
 
             animator = GetComponent<Animator>();
+            rb = GetComponent<Rigidbody>();
         }
 
-        private void Update() {
+        private void FixedUpdate() {
 
             if (isMoving) {
 
-                transform.Translate(Vector3.forward * runnigSpeed * Time.deltaTime);
+                rb.MovePosition(transform.position + (Vector3.forward * runnigSpeed * Time.fixedDeltaTime));
 
-                if (Input.GetKey(KeyCode.Mouse0))
-                    transform.Translate(Vector3.right * movingSpeed * Time.deltaTime);
+                if (Input.GetKey(KeyCode.Mouse1))
+                    rb.MovePosition(transform.position + (Vector3.forward * runnigSpeed * Time.fixedDeltaTime) + (Vector3.right * movingSpeed * Time.fixedDeltaTime));
 
-                else if (Input.GetKey(KeyCode.Mouse1))
-                    transform.Translate(Vector3.left * movingSpeed * Time.deltaTime);
-            }                                    
+                else if (Input.GetKey(KeyCode.Mouse0))
+                    rb.MovePosition(transform.position + (Vector3.forward * runnigSpeed * Time.fixedDeltaTime) + (Vector3.left * movingSpeed * Time.fixedDeltaTime));
+            }
         }
+
+        //private void Update() {
+
+        //    if (isMoving) {
+
+        //        transform.Translate(Vector3.forward * runnigSpeed * Time.deltaTime);
+
+        //        if (Input.GetKey(KeyCode.Mouse1))
+        //            transform.Translate(Vector3.right * movingSpeed * Time.deltaTime);
+
+        //        else if (Input.GetKey(KeyCode.Mouse0))
+        //            transform.Translate(Vector3.left * movingSpeed * Time.deltaTime);
+        //    }
+        //}
     }
 }
 
