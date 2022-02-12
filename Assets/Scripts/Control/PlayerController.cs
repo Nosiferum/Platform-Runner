@@ -12,19 +12,12 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
         [SerializeField]
         private float movingSpeed = 5f;
 
-        private Rigidbody rigidbody;
-
+        public Animator animator { get; set; }
         public bool isMoving { get; set; } = true;
 
         private void Awake() {
 
-            rigidbody = GetComponent<Rigidbody>();
-        }
-
-        private void FixedUpdate() {
-
-            
-
+            animator = GetComponent<Animator>();
         }
 
         private void Update() {
@@ -38,7 +31,6 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
 
                 else if (Input.GetKey(KeyCode.Mouse1))
                     transform.Translate(Vector3.left * movingSpeed * Time.deltaTime);
-
             }                                    
         }
     }
