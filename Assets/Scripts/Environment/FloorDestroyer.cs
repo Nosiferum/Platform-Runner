@@ -9,7 +9,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment {
         private void OnTriggerExit(Collider other) {
 
             if (other.tag == "Player")
-                Destroy(gameObject, 1.5f);        
+                Destroy(gameObject, 2.4f);        
         }
     }
 }
