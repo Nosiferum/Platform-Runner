@@ -15,10 +15,8 @@ namespace DogukanKarabiyik.PlatformRunner.Environment {
 
         private void Awake() {
             
-            for (int i = 0; i < floorCount; i++) {
-
-                SpawnFloor();
-            }
+            for (int i = 0; i < floorCount; i++) 
+                SpawnFloor();            
         }
 
         public void SpawnFloor() {
