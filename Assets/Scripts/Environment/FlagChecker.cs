@@ -7,6 +7,8 @@ namespace DogukanKarabiyik.PlatformRunner.Environment {
 
     public class FlagChecker : MonoBehaviour {
 
+        public bool isVisible { get; private set; } = false;
+
         private void OnTriggerEnter(Collider other) {
 
             if (other.tag == "Player") {
@@ -15,6 +17,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment {
 
                 playerController.isMoving = false;
                 playerController.animator.SetBool("isMoving", false);
+                isVisible = true;
             }
 
             else if (other.tag == "Enemy") {
@@ -34,7 +37,8 @@ namespace DogukanKarabiyik.PlatformRunner.Environment {
 
                 playerController.animator.SetBool("isMoving", true);
                 playerController.isMoving = true;
-                
+                isVisible = false;
+
             }
 
             else if (other.tag == "Enemy") {
