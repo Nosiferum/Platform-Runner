@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DogukanKarabiyik.PlatformRunner.Control;
 
 namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
 
@@ -10,6 +11,9 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
 
             if (other.tag == "Player")            
                 UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+
+            if (other.tag == "Enemy")
+                other.transform.position = other.GetComponent<EnemyController>().start.position;
         }      
     }
 }

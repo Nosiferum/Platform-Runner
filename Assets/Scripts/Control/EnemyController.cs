@@ -10,6 +10,9 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
         [SerializeField]
         private Transform destination;
 
+        [field: SerializeField]
+        public Transform start { get; private set; }
+
         private NavMeshAgent navMeshAgent;
 
         public Animator animator { get; set; }
