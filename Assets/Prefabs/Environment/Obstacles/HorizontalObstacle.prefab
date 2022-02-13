@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6467605621993663517}
+  - component: {fileID: 4069708282629220619}
+  - component: {fileID: 879514453190904098}
+  - component: {fileID: 4236256209051312460}
   m_Layer: 0
   m_Name: HorizontalObstacle
   m_TagString: Untagged
@@ -31,6 +34,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4069708282629220619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823051999934596214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55db969b8cbfec48a0ba30a23e2fecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &879514453190904098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823051999934596214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530d15ccda2e3394fbfa7bbec0365ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingSpeed: 5
+  start: {fileID: 0}
+  destination: {fileID: 0}
+--- !u!136 &4236256209051312460
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823051999934596214}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.19773558
+  m_Height: 1.0164919
+  m_Direction: 1
+  m_Center: {x: -0.00004079938, y: 0.026979566, z: 0.015160203}
 --- !u!1001 &4779038274521988290
 PrefabInstance:
   m_ObjectHideFlags: 0
