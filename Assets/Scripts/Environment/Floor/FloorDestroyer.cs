@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DogukanKarabiyik.PlatformRunner.Environment {
+namespace DogukanKarabiyik.PlatformRunner.Environment.Floor {
 
     public class FloorDestroyer : MonoBehaviour {
 

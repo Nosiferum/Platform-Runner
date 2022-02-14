@@ -28,6 +28,9 @@ namespace DogukanKarabiyik.PlatformRunner.GameManagement {
 
         private void Update() {
 
+            RestartGame();
+            QuitGame();
+
             CalculateRanking();
             CalculatePaintPercentage();
         }
@@ -68,6 +71,18 @@ namespace DogukanKarabiyik.PlatformRunner.GameManagement {
 
             Debug.Log(percentage);
                         
+        }
+
+        private void RestartGame() {
+
+            if (Input.GetKeyDown(KeyCode.R))
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
+
+        private void QuitGame() {
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+                Application.Quit();
         }
     }
 }
