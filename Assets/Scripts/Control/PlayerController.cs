@@ -34,21 +34,7 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
                 else if (Input.GetKey(KeyCode.Mouse0))
                     rb.MovePosition(transform.position + (Vector3.forward * runnigSpeed * Time.fixedDeltaTime) + (Vector3.left * movingSpeed * Time.fixedDeltaTime));
             }
-        }
-
-        //private void Update() {
-
-        //    if (isMoving) {
-
-        //        transform.Translate(Vector3.forward * runnigSpeed * Time.deltaTime);
-
-        //        if (Input.GetKey(KeyCode.Mouse1))
-        //            transform.Translate(Vector3.right * movingSpeed * Time.deltaTime);
-
-        //        else if (Input.GetKey(KeyCode.Mouse0))
-        //            transform.Translate(Vector3.left * movingSpeed * Time.deltaTime);
-        //    }
-        //}
+        }      
     }
 }
 

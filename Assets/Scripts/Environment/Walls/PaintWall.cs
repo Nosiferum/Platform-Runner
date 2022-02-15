@@ -11,9 +11,9 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Walls {
         private Material material;
 
         private GameObject wallFlag;
+        private bool isActivatedOnce = false;
 
         public bool isPainted { get; private set; }
-
 
         private void Awake() {
 
@@ -23,8 +23,14 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Walls {
 
         private void Update() {
             
-            if (wallFlag.GetComponent<FlagChecker>().isVisible)
-                GetComponent<MeshRenderer>().enabled = true;
+            if (!isActivatedOnce) {
+
+                if (wallFlag.GetComponent<FlagChecker>().isVisible) {
+
+                    transform.parent.transform.position = wallFlag.GetComponent<FlagChecker>().wallSpawnPos;
+                    GetComponent<MeshRenderer>().enabled = true;
+                }
+            }                  
         }
 
         private void OnMouseOver() {
