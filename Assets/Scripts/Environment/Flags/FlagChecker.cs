@@ -8,7 +8,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Flags {
     public class FlagChecker : MonoBehaviour {
 
         public bool isVisible { get; private set; } = false;
-        public Vector3 wallSpawnPos;
+        public Vector3 wallSpawnPos { get; private set; }
 
         private void OnTriggerEnter(Collider other) {
 
@@ -19,6 +19,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Flags {
                 playerController.isMoving = false;
                 playerController.animator.SetBool("isMoving", false);
                 isVisible = true;
+
                 wallSpawnPos = other.transform.position + new Vector3(0.7f, 0.1f, 0.76f) + new Vector3(0, 0, 10);
             }
 

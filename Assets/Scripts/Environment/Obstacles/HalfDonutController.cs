@@ -18,9 +18,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
         private void Awake() {
 
             movingStickTransform = transform.GetChild(0).GetChild(0).transform;
-            movingStickTransform.localPosition = Vector3.zero;
-            
-
+            movingStickTransform.localPosition = Vector3.zero;           
         }
 
         private void Update() {

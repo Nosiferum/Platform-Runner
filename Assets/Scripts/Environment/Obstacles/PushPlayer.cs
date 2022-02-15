@@ -12,12 +12,8 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
 
         private void OnTriggerStay(Collider other) {
 
-            if (other.tag == "Player") {
-
-                other.attachedRigidbody.AddForce(Vector3.back * pushingForce, ForceMode.Impulse);
-
-            }
-
+            if (other.tag == "Player") 
+                other.attachedRigidbody.AddForce(Vector3.back * pushingForce, ForceMode.Impulse);           
         }
     }
 }

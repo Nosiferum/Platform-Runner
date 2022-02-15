@@ -18,9 +18,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
 
         private void Update() {
 
-            rotatingStickTransform.Rotate(Vector3.up * rotatingSpeed * Time.deltaTime);
-
-            
+            rotatingStickTransform.Rotate(Vector3.up * rotatingSpeed * Time.deltaTime);          
         }
     }
 

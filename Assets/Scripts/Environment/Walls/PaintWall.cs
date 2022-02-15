@@ -15,7 +15,6 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Walls {
 
         public bool isPainted { get; private set; }
 
-
         private void Awake() {
 
             wallFlag = GameObject.FindGameObjectWithTag("WallFlag");
