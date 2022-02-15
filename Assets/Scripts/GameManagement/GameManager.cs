@@ -63,7 +63,7 @@ namespace DogukanKarabiyik.PlatformRunner.GameManagement {
             int j = 0;
 
             foreach (var pair in sortedDict)               
-                rankingTextArray[j++].text = "Rank" + rank++ + ":" + " Name: " + pair.Key;                            
+                rankingTextArray[j++].text = "Rank" + rank++ + ":" + " " + pair.Key;                            
         }
 
         private void CalculatePaintPercentage() {
