@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DogukanKarabiyik.PlatformRunner.Environment.Flags;
 
-namespace DogukanKarabiyik.PlatformRunner.Environment {
+namespace DogukanKarabiyik.PlatformRunner.Environment.Walls {
 
     public class PaintWall : MonoBehaviour {
 

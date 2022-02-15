@@ -24,6 +24,13 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
             animator = GetComponent<Animator>();
         }
 
+
+        private void Start() {
+
+            navMeshAgent.speed = Random.Range(3, 7);
+            navMeshAgent.acceleration = Random.Range(3, 6);
+        }
+
         private void Update() {
 
             if (isMoving)

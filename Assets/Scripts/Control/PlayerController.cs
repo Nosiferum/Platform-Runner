@@ -12,9 +12,8 @@ namespace DogukanKarabiyik.PlatformRunner.Control {
         [SerializeField]
         private float movingSpeed = 5f;
 
-        private Rigidbody rb;
-
-        public Animator animator { get; set; }
+        public Rigidbody rb { get; private set; }
+        public Animator animator { get; private set; }
         public bool isMoving { get; set; } = true;
 
         private void Awake() {

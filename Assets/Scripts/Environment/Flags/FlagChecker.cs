@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DogukanKarabiyik.PlatformRunner.Control;
 
-namespace DogukanKarabiyik.PlatformRunner.Environment {
+namespace DogukanKarabiyik.PlatformRunner.Environment.Flags {
 
     public class FlagChecker : MonoBehaviour {
 
