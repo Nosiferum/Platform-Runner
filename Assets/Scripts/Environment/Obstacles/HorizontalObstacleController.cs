@@ -15,7 +15,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
         [SerializeField]
         Transform destination;
 
-        private bool isReached = false;
+        private bool _isReached = false;
 
         private void Start() {
 
@@ -24,21 +24,21 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
 
         private void Update() {
 
-            if (!isReached) {
+            if (!_isReached) {
 
-                transform.Translate(Vector3.right * movingSpeed * Time.deltaTime);
+                transform.Translate(Vector3.right * (movingSpeed * Time.deltaTime));
 
                 if (transform.position.x >= destination.position.x)
-                    isReached = true;
+                    _isReached = true;
                 
             }
 
             else {
 
-                transform.Translate(Vector3.left * movingSpeed * Time.deltaTime);
+                transform.Translate(Vector3.left * (movingSpeed * Time.deltaTime));
 
                 if (transform.position.x <= start.position.x)
-                    isReached = false;
+                    _isReached = false;
             }               
         }
     }

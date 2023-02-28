@@ -1,5 +1,4 @@
-Hold left click to go left
-Hold right click to go right
+Swipe with left mouse button to move
 Hover your mouse to the wall to paint
 Press R to restart the game
 Press ESC to quit the game

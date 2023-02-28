@@ -9,16 +9,16 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
         [SerializeField]
         private float rotatingSpeed = 5f;
 
-        private Transform rotatingStickTransform;
+        private Transform _rotatingStickTransform;
 
         private void Awake() {
 
-            rotatingStickTransform = transform.GetChild(1).transform;
+            _rotatingStickTransform = transform.GetChild(1).transform;
         }
 
         private void Update() {
 
-            rotatingStickTransform.Rotate(Vector3.up * rotatingSpeed * Time.deltaTime);          
+            _rotatingStickTransform.Rotate(Vector3.up * (rotatingSpeed * Time.deltaTime));          
         }
     }
 

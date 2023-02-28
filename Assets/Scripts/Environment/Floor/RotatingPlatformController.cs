@@ -11,7 +11,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Floor {
 
         private void Update() {
 
-            transform.Rotate(Vector3.forward * rotatingSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.forward * (rotatingSpeed * Time.deltaTime));
         }
     }
 }

@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
-  <start>k__BackingField: {fileID: 0}
+  <StartPos>k__BackingField: {fileID: 0}
 --- !u!1001 &6525234727691234943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,6 +127,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6400565758007925616}
     m_Modifications:
+    - target: {fileID: -8872410531565394040, guid: f06f5a6246bc25c448ced83b861d0c35, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f06f5a6246bc25c448ced83b861d0c35, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -231,6 +235,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: -1322978591113557007, guid: f06f5a6246bc25c448ced83b861d0c35, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1322978591113557007, guid: f06f5a6246bc25c448ced83b861d0c35, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50ff77bb485aeb04c99df0a1239a3af4, type: 2}
     - target: {fileID: -1259428315631182201, guid: f06f5a6246bc25c448ced83b861d0c35, type: 3}
       propertyPath: m_Layer
       value: 9
