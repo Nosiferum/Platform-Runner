@@ -9,11 +9,11 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
 
         private void OnTriggerEnter(Collider other) {
 
-            if (other.tag == "Player")            
+            if (other.CompareTag("Player"))            
                 UnityEngine.SceneManagement.SceneManager.LoadScene(0);
 
-            if (other.tag == "Enemy")
-                other.transform.position = other.GetComponent<EnemyController>().start.position;
+            if (other.CompareTag("Enemy"))
+                other.transform.position = other.GetComponent<EnemyController>().StartPos.position;
         }      
     }
 }

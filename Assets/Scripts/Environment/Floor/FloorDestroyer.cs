@@ -8,7 +8,7 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Floor {
 
         private void OnTriggerExit(Collider other) {
 
-            if (other.tag == "Player")
+            if (other.CompareTag("Player"))
                 Destroy(gameObject, 3.4f);        
         }
     }

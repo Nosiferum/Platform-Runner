@@ -1,41 +1,82 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using DogukanKarabiyik.PlatformRunner.Managers;
 using UnityEngine;
 
-namespace DogukanKarabiyik.PlatformRunner.Control {
+namespace DogukanKarabiyik.PlatformRunner.Control
+{
+    public class PlayerController : MonoBehaviour
+    {
+        [SerializeField] private float forwardSpeed = 5f;
+        [SerializeField] private float horizontalSpeed = 5f;
+        
+        private Rigidbody _rb;
+        private Animator _animator;
+        
+        private Action _playerState;
 
-    public class PlayerController : MonoBehaviour {
-
-        [SerializeField]
-        private float runnigSpeed = 5f;
-
-        [SerializeField]
-        private float movingSpeed = 5f;
-
-        public Rigidbody rb { get; private set; }
-        public Animator animator { get; private set; }
-        public bool isMoving { get; set; } = true;
-
-        private void Awake() {
-
-            animator = GetComponent<Animator>();
-            rb = GetComponent<Rigidbody>();
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            _rb = GetComponent<Rigidbody>();
+        }
+        
+        private void FixedUpdate()
+        {
+            _playerState?.Invoke();
+        }
+        
+        private void GamePlayState()
+        {
+            Move();
         }
 
-        private void FixedUpdate() {
+        private void Move()
+        {
+            _rb.velocity = Vector3.forward * forwardSpeed;
+                
+                if (Input.GetMouseButton(0))
+                    _rb.velocity = Vector3.forward * forwardSpeed +
+                                   (new Vector3(InputManager.Delta.x, 0, 0) * horizontalSpeed);
+        }
 
-            if (isMoving) {
+        private void StopMovement()
+        {
+            _rb.velocity = Vector3.zero;
+        }
+        
+        private void SetStartingAnimation()
+        {
+            _animator.SetBool("isMoving", true);
+        }
 
-                rb.MovePosition(transform.position + (Vector3.forward * runnigSpeed * Time.fixedDeltaTime));
+        private void SetEndingAnimation()
+        {
+            _animator.SetBool("isMoving", false);
+        }
+        
+        private void StartBroadcast()
+        {
+            SetStartingAnimation();
+            _playerState = GamePlayState;
+        }
 
-                if (Input.GetKey(KeyCode.Mouse1))
-                    rb.MovePosition(transform.position + (Vector3.forward * runnigSpeed * Time.fixedDeltaTime) + (Vector3.right * movingSpeed * Time.fixedDeltaTime));
+        private void EndLineReachedBroadcast()
+        {
+            _playerState = null;
+            StopMovement();
+            SetEndingAnimation();
+        }
+        
+        private void OnEnable()
+        {
+            StaticGameManager.OnLevelStart += StartBroadcast;
+            StaticGameManager.OnEndLineReached += EndLineReachedBroadcast;
+        }
 
-                else if (Input.GetKey(KeyCode.Mouse0))
-                    rb.MovePosition(transform.position + (Vector3.forward * runnigSpeed * Time.fixedDeltaTime) + (Vector3.left * movingSpeed * Time.fixedDeltaTime));
-            }
-        }      
+        private void OnDisable()
+        {
+            StaticGameManager.OnLevelStart -= StartBroadcast;
+            StaticGameManager.OnEndLineReached -= EndLineReachedBroadcast;
+        }
     }
 }
-
-

@@ -9,34 +9,34 @@ namespace DogukanKarabiyik.PlatformRunner.Environment.Obstacles {
         [SerializeField]
         private float movingSpeed = 5f;
 
-        private float maxXvalue = 0.1375f;
-        private float minXValue = -0.1413f;
+        private const float MaxXvalue = 0.1375f;
+        private const float MinXValue = -0.1413f;
 
-        private bool isReached = false;
-        private Transform movingStickTransform;
+        private bool _isReached = false;
+        private Transform _movingStickTransform;
 
         private void Awake() {
 
-            movingStickTransform = transform.GetChild(0).GetChild(0).transform;
-            movingStickTransform.localPosition = Vector3.zero;           
+            _movingStickTransform = transform.GetChild(0).GetChild(0).transform;
+            _movingStickTransform.localPosition = Vector3.zero;           
         }
 
         private void Update() {
 
-            if (!isReached) {
+            if (!_isReached) {
 
-                movingStickTransform.Translate(Vector3.left * movingSpeed * Time.deltaTime);
+                _movingStickTransform.Translate(Vector3.left * (movingSpeed * Time.deltaTime));
 
-                if (movingStickTransform.localPosition.x <= minXValue)
-                    isReached = true;
+                if (_movingStickTransform.localPosition.x <= MinXValue)
+                    _isReached = true;
             }
 
             else {
 
-                movingStickTransform.Translate(Vector3.right * movingSpeed * Time.deltaTime);
+                _movingStickTransform.Translate(Vector3.right * (movingSpeed * Time.deltaTime));
 
-                if (movingStickTransform.localPosition.x >= maxXvalue)
-                    isReached = false;
+                if (_movingStickTransform.localPosition.x >= MaxXvalue)
+                    _isReached = false;
             }           
         }
     }

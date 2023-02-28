@@ -1,44 +1,55 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DogukanKarabiyik.PlatformRunner.Environment.Flags;
+using DogukanKarabiyik.PlatformRunner.Managers;
 
-namespace DogukanKarabiyik.PlatformRunner.Environment.Walls {
+namespace DogukanKarabiyik.PlatformRunner.Environment.Walls
+{
+    public class PaintWall : MonoBehaviour
+    {
+        [SerializeField] private Material material;
 
-    public class PaintWall : MonoBehaviour {
+        public Action OnWallPainted;
 
-        [SerializeField]
-        private Material material;
+        private GameObject _wallFlag;
+        private bool _isPainted = false;
 
-        private GameObject wallFlag;
-        private bool isActivatedOnce = false;
-
-        public bool isPainted { get; private set; }
-
-        private void Awake() {
-
-            wallFlag = GameObject.FindGameObjectWithTag("WallFlag");
+        private void Awake()
+        {
             GetComponent<MeshRenderer>().enabled = false;
         }
 
-        private void Update() {
-            
-            if (!isActivatedOnce) {
-
-                if (wallFlag.GetComponent<FlagChecker>().isVisible) {
-
-                    transform.parent.transform.position = wallFlag.GetComponent<FlagChecker>().wallSpawnPos;
-                    GetComponent<MeshRenderer>().enabled = true;
-                }
-            }                  
+        private void Start()
+        {
+            _wallFlag = GameObject.FindGameObjectWithTag("WallFlag");
         }
 
-        private void OnMouseOver() {
+        private void ActivateWall()
+        {
+            transform.parent.transform.position = _wallFlag.GetComponent<FlagChecker>().WallSpawnPos;
+            GetComponent<MeshRenderer>().enabled = true;
+        }
+        
+        private void OnMouseEnter()
+        {
+            if (!_isPainted)
+            {
+                GetComponent<MeshRenderer>().material = material;
+                OnWallPainted?.Invoke();
+                _isPainted = true;
+            }
+        }
 
-            GetComponent<MeshRenderer>().material = material;
-            isPainted = true;
+        private void OnEnable()
+        {
+            StaticGameManager.OnEndLineReached += ActivateWall;
+        }
+
+        private void OnDisable()
+        {
+            StaticGameManager.OnEndLineReached -= ActivateWall;
         }
     }
 }
-
-
